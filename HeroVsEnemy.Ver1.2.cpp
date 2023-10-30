@@ -7,6 +7,8 @@
 #include"HeroVsEnemy.h"
 using namespace std;
 
+void showStatus(const Hero hero, const Enemy enemy);
+
 int main()
 {
     int pHp = 0, eHp = 0;
@@ -23,8 +25,9 @@ int main()
     Enemy enemy(eName, eHp);
 
     while (victory == false) {
-        hero.show();
-        enemy.show();
+        void showStatus(const Hero  hero, const Enemy  enemy);//値渡しをしてヒーローとエネミーのステータス表示をする関数
+       /* hero.show();
+        enemy.show();*/
         while (pMove < 1 || pMove>2) {
             printf("1:攻撃\n2:回復\n");
             cin >> pMove;
@@ -56,6 +59,12 @@ int main()
         }
     }
     cout << "戦闘終了" << endl;
+}
+void showStatus(const Hero hero,const Enemy enemy) 
+{
+    
+    printf("名前:%s\n体力:%d\n防御力%d\n敵の名前:%s\n体力:%d\n防御力%d\n",hero.nameGetter(), hero.hpGetter(), hero.defGetter(), enemy.nameGetter(), enemy.hpGetter(), enemy.defGetter());
+
 }
 
 

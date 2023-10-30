@@ -3,7 +3,7 @@
 #include<iostream>
 #include<ctime>
 
-Hero::Hero(char* name, int hp) {
+Hero::Hero(const char* name, int hp) {
     _nameSize = strlen(name);//•¶š”æ“¾
     _name = new char[_nameSize + 1];
     strcpy(_name, name);
@@ -21,7 +21,6 @@ void Hero::atk(Enemy* enemy)
     printf("%s‚ÌUŒ‚%d‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½\n", _name, dmage);
     enemy->hpSetter(hp);
 }
-
 int Hero::hpGetter() { return _hp; }
 int Hero::defGetter() { return _def; }
 void Hero::hpSetter(int hp) { _hp = hp; }
@@ -35,6 +34,8 @@ void Hero::heal()
 void Hero::show() {
     printf("–¼‘O:%s\n‘Ì—Í:%d\nUŒ‚—Í:%d\n–hŒä—Í%d:\n", _name, _hp, _atk, _def);
 }
+const char* Hero::nameGetter() { return _name; }
+
 //////Enemy/////
 
 
@@ -69,3 +70,5 @@ void Enemy::heal()
 void Enemy::show() {
     printf("–¼‘O:%s\n‘Ì—Í:%d\nUŒ‚—Í:%d\n–hŒä—Í:%d\n", _name, _hp, _atk, _def);
 }
+const char* Enemy::nameGetter() { return _name; }
+
